@@ -1,13 +1,16 @@
 import 'package:nyxx/nyxx.dart';
 
+import 'package:wz143/utils/config.dart';
+
 void main() async {
   final client = await Nyxx.connectGateway(
-    '',
-    GatewayIntents.all,
+    token,
+    intents,
     options: GatewayClientOptions(plugins: [logging, cliIntegration]),
   );
 
   final wz = await client.users.fetchCurrentUser();
+  client.updatePresence(status);
 
   client.onMessageCreate.listen((event) async {
     if (event.mentions.contains(wz)) {
