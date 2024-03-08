@@ -4,8 +4,8 @@ import 'package:nyxx/nyxx.dart';
 /// Envrionment Variables
 var env = DotEnv(includePlatformEnvironment: true)..load();
 final token = env['TOKEN']!;
-final guildIds = env['GUILD_ID']!;
-final ownerIds = env['OWNER_ID']!;
+final prefix = env['PREFIX']!;
+final ownerId = env['OWNER_ID']!;
 final intents = GatewayIntents.all;
 
 /// wz status
